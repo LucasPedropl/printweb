@@ -1,8 +1,5 @@
 import { motion } from 'motion/react';
 import { howItWorksContent } from '../content/howItWorks';
-import { MousePointer2, Edit3, Printer } from 'lucide-react';
-
-const stepIcons = [MousePointer2, Edit3, Printer];
 
 export default function HowItWorks() {
   return (
@@ -24,7 +21,6 @@ export default function HowItWorks() {
 
         <div className="grid md:grid-cols-3 gap-12">
           {howItWorksContent.steps.map((step, index) => {
-            const Icon = stepIcons[index];
             return (
               <motion.div
                 key={step.step}
@@ -32,21 +28,21 @@ export default function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="relative group"
+                className="relative group bg-white/5 rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-colors"
               >
-                {index < 2 && (
-                  <div className="hidden lg:block absolute top-1/4 -right-6 w-12 h-0.5 bg-white/20" />
-                )}
-                
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-white rounded-[32px] flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-10 h-10 text-emerald-600" />
-                    <div className="absolute -top-3 -right-3 w-10 h-10 bg-emerald-950 text-white rounded-full flex items-center justify-center font-bold text-sm border-4 border-emerald-600">
+                  <div className="w-full aspect-video rounded-2xl overflow-hidden mb-8 shadow-xl relative bg-white/10 p-4 flex items-center justify-center">
+                    <img 
+                      src={step.image} 
+                      alt={step.title} 
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-4 left-4 w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
                       {index + 1}
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                  <p className="text-emerald-50/80 leading-relaxed max-w-[250px]">
+                  <p className="text-emerald-50/80 leading-relaxed">
                     {step.description}
                   </p>
                 </div>

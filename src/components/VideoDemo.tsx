@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { Play } from 'lucide-react';
 import { videoContent } from '../content/video';
 
 export default function VideoDemo() {
@@ -32,31 +31,26 @@ export default function VideoDemo() {
           </motion.p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer"
-        >
-          <img 
-            src={videoContent.thumbnail} 
-            alt="Video Thumbnail" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-            <div className="w-24 h-24 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-300">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-                <Play className="w-6 h-6 text-emerald-600 fill-emerald-600 ml-1" />
-              </div>
-            </div>
-          </div>
-          
-          <div className="absolute bottom-6 right-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg text-white font-medium text-sm border border-white/10">
-            {videoContent.duration}
-          </div>
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {videoContent.videos.map((video, index) => (
+            <motion.div
+              key={video.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${video.id}`}
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              ></iframe>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { segmentsContent } from '../content/segments';
 import SearchableSelect from './ui/SearchableSelect';
@@ -6,6 +6,18 @@ import { CheckCircle2 } from 'lucide-react';
 
 export default function Segments() {
   const [selectedSegment, setSelectedSegment] = useState(segmentsContent.items[0].name);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedSegment(current => {
+        const currentIndex = segmentsContent.items.findIndex(s => s.name === current);
+        const nextIndex = (currentIndex + 1) % segmentsContent.items.length;
+        return segmentsContent.items[nextIndex].name;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const segmentOptions = segmentsContent.items.map(s => ({
     value: s.name,
@@ -70,7 +82,7 @@ export default function Segments() {
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
-                src={`https://picsum.photos/seed/${selectedSegment}/800/800`} 
+                src={activeSegment?.image || `https://picsum.photos/seed/${selectedSegment}/800/800`} 
                 alt={selectedSegment}
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

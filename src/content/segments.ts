@@ -3,6 +3,7 @@ export const segmentsContent = {
   items: [
     {
       name: "Hortifruti",
+      image: "/segmentos/hortfruti.png",
       details: [
         "Etiquetas com peso, preço por quilo e código de barras",
         "Nome do produto e data de validade",
@@ -11,6 +12,7 @@ export const segmentsContent = {
     },
     {
       name: "Bar / Restaurante",
+      image: "/segmentos/bar-restaurante.png",
       details: [
         "Comandas personalizadas para mesas e balcões",
         "Etiquetas para delivery com nome do cliente e itens do pedido",
@@ -19,6 +21,7 @@ export const segmentsContent = {
     },
     {
       name: "Padaria",
+      image: "/segmentos/padaria.png",
       details: [
         "Etiquetas para pães, bolos e doces com preço por unidade ou por kg",
         "Informações nutricionais e validade",
@@ -27,6 +30,7 @@ export const segmentsContent = {
     },
     {
       name: "Mercados",
+      image: "/segmentos/mercado.png",
       details: [
         "Etiquetas para prateleiras com preço, código de barras e descrição",
         "Etiquetas promocionais (ofertas do dia, leve 3 pague 2, etc.)",
@@ -35,6 +39,7 @@ export const segmentsContent = {
     },
     {
       name: "Loja de Roupa",
+      image: "/segmentos/roupas.png",
       details: [
         "Etiquetas com tamanho, cor, preço e código do produto",
         "Informações de composição e cuidados com a peça",
@@ -43,6 +48,7 @@ export const segmentsContent = {
     },
     {
       name: "Eventos",
+      image: "/segmentos/eventos.png",
       details: [
         "Etiquetas para lembrancinhas com nome e data personalizada",
         "Identificação de mesas, setores e produtos no buffet",
@@ -51,6 +57,7 @@ export const segmentsContent = {
     },
     {
       name: "Papelaria",
+      image: "/segmentos/papelaria.png",
       details: [
         "Etiquetas de preço para prateleiras e balcões",
         "Código de barras ou QR Code para controle de estoque",
@@ -59,6 +66,7 @@ export const segmentsContent = {
     },
     {
       name: "Vitrines",
+      image: "/segmentos/vitrines.png",
       details: [
         "Etiquetas de vitrine com preços visíveis e design elegante",
         "Informações de tamanho, cores disponíveis ou material",
@@ -67,6 +75,7 @@ export const segmentsContent = {
     },
     {
       name: "Joalheria",
+      image: "/segmentos/joalheria.png",
       details: [
         "Etiquetas pequenas e discretas para brincos, anéis, colares e pulseiras",
         "Informações sobre material (ouro, prata, folheado, com pedra natural etc.)",
