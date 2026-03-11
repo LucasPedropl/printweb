@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import Segments from './components/Segments';
 import HowItWorks from './components/HowItWorks';
+import Compatibility from './components/Compatibility';
 import VideoDemo from './components/VideoDemo';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -26,6 +27,7 @@ export default function App() {
           <Features />
           <Segments />
           <HowItWorks />
+          <Compatibility />
           <VideoDemo />
           <Testimonials />
           <Contact />

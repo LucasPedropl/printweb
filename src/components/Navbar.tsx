@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Printer } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,15 +20,17 @@ export default function Navbar() {
     { name: 'Contato', href: '#contact' },
   ];
 
+  const isSolid = isScrolled || isMobileMenuOpen;
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSolid ? 'bg-white shadow-sm' : 'bg-transparent'}`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${isSolid ? 'py-3' : 'py-5'}`}>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden shadow-lg shadow-emerald-600/20">
               <img src="/logo.jpg" alt="Print App Logo" className="w-full h-full object-cover" />
             </div>
-            <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+            <span className={`text-xl font-bold tracking-tight ${isSolid ? 'text-gray-900' : 'text-white'}`}>
               Print <span className="text-emerald-500">App</span>
             </span>
           </div>
@@ -39,7 +41,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-emerald-500 ${isScrolled ? 'text-gray-600' : 'text-white/90'}`}
+                className={`text-sm font-medium transition-colors hover:text-emerald-500 ${isSolid ? 'text-gray-600' : 'text-white/90'}`}
               >
                 {link.name}
               </a>
@@ -53,7 +55,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${isScrolled ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
+              className={`p-2 rounded-lg transition-colors ${isSolid ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
             </button>

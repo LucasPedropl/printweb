@@ -30,7 +30,7 @@ export default function Segments() {
     <section id="segments" className="py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div className="order-2 lg:order-1">
             <h2 className="text-emerald-600 font-bold text-sm uppercase tracking-[0.2em] mb-4">
               {segmentsContent.title}
             </h2>
@@ -42,12 +42,15 @@ export default function Segments() {
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Escolha seu segmento para ver as funcionalidades:
               </label>
-              <SearchableSelect 
-                options={segmentOptions}
-                value={selectedSegment}
-                onChange={setSelectedSegment}
-                className="max-w-md"
-              />
+              <div className="relative">
+                <SearchableSelect 
+                  options={segmentOptions}
+                  value={selectedSegment}
+                  onChange={setSelectedSegment}
+                  className="max-w-md ring-2 ring-emerald-500/30 shadow-lg shadow-emerald-500/10 rounded-lg transition-all hover:ring-emerald-500/50"
+                />
+                <div className="absolute -inset-1 bg-emerald-500/20 rounded-xl blur-md -z-10 animate-pulse" />
+              </div>
             </div>
 
             <AnimatePresence mode="wait">
@@ -75,7 +78,7 @@ export default function Segments() {
             </AnimatePresence>
           </div>
 
-          <div className="relative">
+          <div className="relative order-1 lg:order-2">
             <div className="aspect-square rounded-[40px] overflow-hidden shadow-2xl relative z-10">
               <motion.img 
                 key={selectedSegment}

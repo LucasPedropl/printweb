@@ -1,14 +1,14 @@
 import { motion } from 'motion/react';
-import { Zap, Shield, Link, Settings, Headphones, RefreshCw } from 'lucide-react';
+import { Printer, Tag, Wifi, Settings, Headphones, Database } from 'lucide-react';
 import { featuresContent } from '../content/features';
 
 const iconMap: Record<string, any> = {
-  "Impressão Rápida": Zap,
-  "Etiquetas Inteligentes": Shield,
-  "Conexão Simples": Link,
+  "Impressão Rápida": Printer,
+  "Etiquetas Inteligentes": Tag,
+  "Conexão Simples": Wifi,
   "Operação Eficiente": Settings,
   "Suporte Personalizado": Headphones,
-  "Integração Prática": RefreshCw,
+  "Integração Prática": Database,
 };
 
 export default function Features() {
@@ -37,7 +37,7 @@ export default function Features() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuresContent.items.map((item, index) => {
-            const Icon = iconMap[item.title] || Zap;
+            const Icon = iconMap[item.title] || Printer;
             return (
               <motion.div
                 key={item.title}

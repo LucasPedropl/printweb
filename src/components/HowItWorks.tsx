@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { ChevronRight } from 'lucide-react';
 import { howItWorksContent } from '../content/howItWorks';
 
 export default function HowItWorks() {
@@ -19,7 +20,7 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 pb-12">
           {howItWorksContent.steps.map((step, index) => {
             return (
               <motion.div
@@ -28,23 +29,24 @@ export default function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="relative group bg-white/5 rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-colors"
+                className="relative group flex flex-col items-center"
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-full aspect-video rounded-2xl overflow-hidden mb-8 shadow-xl relative bg-white/10 p-4 flex items-center justify-center">
-                    <img 
-                      src={step.image} 
-                      alt={step.title} 
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4 w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
-                      {index + 1}
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                  <p className="text-emerald-50/80 leading-relaxed">
+                <div className="w-full aspect-[4/5] rounded-[40px] overflow-hidden mb-12 relative flex items-center justify-center">
+                  <img 
+                    src={step.image} 
+                    alt={step.title} 
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                
+                <div className="absolute bottom-0 left-4 right-4 bg-gray-100 rounded-[32px] p-8 shadow-2xl translate-y-12 group-hover:translate-y-10 transition-transform duration-300">
+                  <div className="text-gray-900 font-medium text-lg mb-2">{step.step}</div>
+                  <h3 className="text-xl font-medium text-gray-800 leading-snug pr-8">
                     {step.description}
-                  </p>
+                  </h3>
+                  <div className="absolute bottom-6 right-6 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg">
+                    <ChevronRight className="w-5 h-5" />
+                  </div>
                 </div>
               </motion.div>
             );
