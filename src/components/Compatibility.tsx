@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 
 const items = [
-  { name: "Tablets e telefones", image: "https://picsum.photos/seed/tablet/400/400" },
-  { name: "Impressoras de Ribbon", image: "https://picsum.photos/seed/ribbon/400/400" },
-  { name: "Impressoras Elgin", image: "https://picsum.photos/seed/elgin/400/400" },
-  { name: "Etiquetas e bobinas térmicas", image: "https://picsum.photos/seed/bobina/400/400" },
-  { name: "Impressoras térmicas", image: "https://picsum.photos/seed/termica/400/400" },
-  { name: "Impressoras de Tectoy", image: "https://picsum.photos/seed/tectoy/400/400" },
+  { name: "Tablets e telefones", image: "/compatibilidade/tablet-telefone.png" },
+  { name: "Impressoras de Ribbon", image: "/compatibilidade/Impressoras de Ribbon.png" },
+  { name: "Impressoras Elgin", image: "/compatibilidade/impressoras elgin.png" },
+  { name: "Etiquetas e bobinas térmicas", image: "/compatibilidade/Etiquetas e bobinas térmicas.png" },
+  { name: "Impressoras térmicas", image: "/compatibilidade/Impressoras térmicas.png" },
+  { name: "Impressoras de Tectoy", image: "/compatibilidade/Impressoras tectoy.png" },
 ];
 
 export default function Compatibility() {
@@ -43,17 +43,17 @@ export default function Compatibility() {
               transition={{ delay: index * 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-white p-2 shadow-2xl mb-6 relative group">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-gray-50 bg-white">
+              <div className="w-48 h-48 md:w-72 md:h-72 rounded-full bg-white p-3 shadow-2xl mb-8 relative group">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-emerald-50 bg-white flex items-center justify-center p-4">
                   <img 
                     src={item.image} 
                     alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
                 </div>
               </div>
-              <h3 className="text-sm md:text-base font-bold text-white uppercase tracking-wider">
+              <h3 className="text-base md:text-lg font-bold text-white uppercase tracking-wider">
                 {item.name}
               </h3>
             </motion.div>

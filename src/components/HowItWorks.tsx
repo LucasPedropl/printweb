@@ -20,7 +20,7 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 pb-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {howItWorksContent.steps.map((step, index) => {
             return (
               <motion.div
@@ -29,23 +29,37 @@ export default function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="relative group flex flex-col items-center"
+                className="group relative"
               >
-                <div className="w-full aspect-[4/5] rounded-[40px] overflow-hidden mb-12 relative flex items-center justify-center">
-                  <img 
-                    src={step.image} 
-                    alt={step.title} 
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                
-                <div className="absolute bottom-0 left-4 right-4 bg-gray-100 rounded-[32px] p-8 shadow-2xl translate-y-12 group-hover:translate-y-10 transition-transform duration-300">
-                  <div className="text-gray-900 font-medium text-lg mb-2">{step.step}</div>
-                  <h3 className="text-xl font-medium text-gray-800 leading-snug pr-8">
-                    {step.description}
-                  </h3>
-                  <div className="absolute bottom-6 right-6 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg">
-                    <ChevronRight className="w-5 h-5" />
+                <div className="bg-white rounded-[48px] p-6 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px]">
+                  {/* Step Badge */}
+                  <div className="absolute -top-4 left-12 bg-emerald-500 text-white px-6 py-2 rounded-full font-bold shadow-lg z-20">
+                    {step.step}
+                  </div>
+
+                  {/* Image Area */}
+                  <div className="bg-gray-50 rounded-[40px] aspect-[4/5] flex items-center justify-center p-8 mb-8 overflow-hidden relative">
+                    <img 
+                      src={step.image} 
+                      alt={step.title} 
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-emerald-600/0 group-hover:bg-emerald-600/5 transition-colors duration-500" />
+                  </div>
+                  
+                  {/* Content Area */}
+                  <div className="px-4 pb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                    
+                    <div className="mt-8 flex items-center text-emerald-600 font-bold group/link cursor-pointer">
+                      <span>Saiba mais</span>
+                      <ChevronRight className="w-5 h-5 ml-1 transition-transform group-hover/link:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </motion.div>
