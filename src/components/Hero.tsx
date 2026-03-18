@@ -10,9 +10,9 @@ export default function Hero() {
         <img 
           src="/hero.png" 
           alt="Background" 
-          className="w-full h-full object-cover object-center opacity-40"
+          className="w-full h-full object-cover object-center opacity-80"
         />
-        <div className="absolute inset-0 bg-emerald-950/90 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-emerald-950/50" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
