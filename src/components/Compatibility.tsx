@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 
 const items = [
-  { name: "Tablets e telefones", image: "/compatibilidade/tablet-telefone.png" },
-  { name: "Impressoras de Ribbon", image: "/compatibilidade/Impressoras de Ribbon.png" },
-  { name: "Impressoras Elgin", image: "/compatibilidade/impressoras elgin.png" },
-  { name: "Etiquetas e bobinas térmicas", image: "/compatibilidade/Etiquetas e bobinas térmicas.png" },
-  { name: "Impressoras térmicas", image: "/compatibilidade/Impressoras térmicas.png" },
-  { name: "Impressoras de Tectoy", image: "/compatibilidade/Impressoras tectoy.png" },
+  { name: "Tablets e telefones", image: "./compatibilidade/tablet-telefone.png" },
+  { name: "Impressoras de Ribbon", image: "./compatibilidade/Impressoras de Ribbon.png" },
+  { name: "Impressoras Elgin", image: "./compatibilidade/impressoras elgin.png" },
+  { name: "Etiquetas e bobinas térmicas", image: "./compatibilidade/Etiquetas e bobinas térmicas.png" },
+  { name: "Impressoras térmicas", image: "./compatibilidade/Impressoras térmicas.png" },
+  { name: "Impressoras de Tectoy", image: "./compatibilidade/Impressoras tectoy.png" },
 ];
 
 export default function Compatibility() {
