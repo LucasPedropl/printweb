@@ -13,9 +13,10 @@ interface SearchableSelectProps {
   onChange: (value: string) => void;
   placeholder?: string;
   className?: string;
+  inputClassName?: string;
 }
 
-export default function SearchableSelect({ options, value, onChange, placeholder = "Selecione...", className = "" }: SearchableSelectProps) {
+export default function SearchableSelect({ options, value, onChange, placeholder = "Selecione...", className = "", inputClassName = "" }: SearchableSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
@@ -60,7 +61,7 @@ export default function SearchableSelect({ options, value, onChange, placeholder
         <input
           ref={inputRef}
           type="text"
-          className="w-full px-4 py-2 bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-400 outline-none"
+          className={`w-full px-4 py-2 bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-400 outline-none ${inputClassName}`}
           placeholder={placeholder}
           value={searchTerm}
           onChange={(e) => {
@@ -82,7 +83,7 @@ export default function SearchableSelect({ options, value, onChange, placeholder
           }}
           className="px-3 text-gray-400 hover:text-gray-600 focus:outline-none"
         >
-          <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`w-5 h-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </button>
       </div>
 

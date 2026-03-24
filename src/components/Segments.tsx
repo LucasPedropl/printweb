@@ -29,8 +29,10 @@ export default function Segments() {
   return (
     <section id="segments" className="py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-x-16 lg:gap-y-8 items-center">
+          
+          {/* Header & Select */}
+          <div className="order-1 lg:col-start-1 lg:row-start-1 flex flex-col justify-center">
             <h2 className="text-emerald-600 font-bold text-sm uppercase tracking-[0.2em] mb-4">
               {segmentsContent.title}
             </h2>
@@ -38,7 +40,7 @@ export default function Segments() {
               Soluções sob medida para o seu negócio
             </h3>
             
-            <div className="mb-10">
+            <div className="mb-2 lg:mb-10">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Escolha seu segmento para ver as funcionalidades:
               </label>
@@ -47,12 +49,36 @@ export default function Segments() {
                   options={segmentOptions}
                   value={selectedSegment}
                   onChange={setSelectedSegment}
-                  className="max-w-md ring-2 ring-emerald-500/30 shadow-lg shadow-emerald-500/10 rounded-lg transition-all hover:ring-emerald-500/50"
+                  className="max-w-md ring-2 ring-emerald-500/30 shadow-lg shadow-emerald-500/10 rounded-xl transition-all hover:ring-emerald-500/50"
+                  inputClassName="text-lg py-3 font-medium"
                 />
                 <div className="absolute -inset-1 bg-emerald-500/20 rounded-xl blur-md -z-10 animate-pulse" />
               </div>
             </div>
+          </div>
 
+          {/* Image */}
+          <div className="relative order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+            <div className="aspect-square rounded-[40px] overflow-hidden shadow-2xl relative z-10">
+              <motion.img 
+                key={selectedSegment}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                src={activeSegment?.image || `https://picsum.photos/seed/${selectedSegment}/800/800`} 
+                alt={selectedSegment}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-emerald-900/10" />
+            </div>
+            {/* Decorative elements */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl" />
+          </div>
+
+          {/* Info Card */}
+          <div className="order-3 lg:col-start-1 lg:row-start-2">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedSegment}
@@ -78,24 +104,6 @@ export default function Segments() {
             </AnimatePresence>
           </div>
 
-          <div className="relative order-1 lg:order-2">
-            <div className="aspect-square rounded-[40px] overflow-hidden shadow-2xl relative z-10">
-              <motion.img 
-                key={selectedSegment}
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                src={activeSegment?.image || `https://picsum.photos/seed/${selectedSegment}/800/800`} 
-                alt={selectedSegment}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-emerald-900/10" />
-            </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl" />
-          </div>
         </div>
       </div>
     </section>
